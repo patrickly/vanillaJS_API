@@ -1,6 +1,18 @@
+const app = document.getElementById('root');
+
+
+const logo = document.createElement('img');
+logo.src = 'logo.png';
+
+const container = document.createElement('div');
+container.setAttribute('class', 'container');
+
+app.appendChild(logo);
+app.appendChild(container);
+
 var request = new XMLHttpRequest();
 
-request.open('GET', 'https://ghibliapi.herokuapp.com/filmsz', true);
+request.open('GET', 'https://ghibliapi.herokuapp.com/films', true);
 
 request.onload = function () {
     //Begin accessing JSON data here
@@ -38,7 +50,7 @@ request.onload = function () {
         });
     } else {
         //console.log('error');
-        const errorMessage = document.createElement('marqueeZ');
+        const errorMessage = document.createElement('marquee');
         errorMessage.textContent = `Gah, it's not working!`;
         app.appendChild(errorMessage);
     }
@@ -46,16 +58,3 @@ request.onload = function () {
 
 request.send();
 
-const app = document.getElementById('root');
-console.log("app: " + app); // concatenation
-console.log("app: " , app); // app is the 2nd argument
-
-const logo = document.createElement('img');
-// console.log(logo);
-logo.src = 'logo.png';
-
-const container = document.createElement('div');
-container.setAttribute('class', 'container');
-console.log(container);
-app.appendChild(logo);
-app.appendChild(container);
